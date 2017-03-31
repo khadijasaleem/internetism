@@ -1,0 +1,23 @@
+// Breakpoints
+// Breakpoints from https://v4-alpha.getbootstrap.com/layout/overview/
+$S: 576px; // Small devices (landscape phones, 576px and up)
+$M: 768px; // Medium devices (tablets, 768px and up)
+$L: 992px; // Large devices (desktops, 992px and up)
+$XL: 1200px; // Extra large devices (large desktops, 1200px and up)
+
+// FONTS
+$primary-font: 'PT Serif', Georgia, serif;
+$secondary-font: 'Open Sans', 'Helvetica Nueue', Helvetica, sans ;
+
+// COLORS
+$color-brand-primary: #F43A3F; //red
+$color-brand-secondary: #F4EB14; //yellow
+$color-blue-light: #88dfda;
+$color-bg-light: #eee;
+$color-bg-dark: #000;
+
+$color-soundcloud: #ff8800;
+
+// Z-index
+$zindex-mainNav: 1;
+$zindex-navTrigger: 2;

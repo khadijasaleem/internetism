@@ -1,0 +1,201 @@
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+
+
+/*
+BASIC RESET 
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a,
+a:visited,
+a:selected,
+a:hover,
+{
+	text-decoration: none;
+}
+
+body {
+	font-family: $secondary-font;
+	background: $color-bg-light;
+	font-size: calc(13px + .3vw);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $primary-font;
+}
+
+header {
+	margin-top: 20px;
+}
+
+.nav-trigger {
+	position: fixed;
+	right: 4vw;
+	top: 4vw;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	box-shadow: -.5px .5px 2px rgba(black, .3);
+	background: white;
+	z-index: $zindex-navTrigger; // make it show over the navigation overlay
+	
+	// hide the text
+	color: transparent;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden; 
+	
+	// the <span> is going to be the hamburger icon
+	span, // the middle line in the icon
+	span::before, // the top line in the icon
+	span::after { // the bottom line in the icon
+		position: absolute; // becuase we want to center the span inside a.nav-trigger
+		height: 2.5px;
+		width: 28px;
+		background: black;		
+		transition: background .3s, transform .3s;
+	}
+	
+	&:hover {
+		span,
+		span::before,
+		span::after {
+			background: $color-brand-primary;
+		}		
+	}
+
+	span { // add lines before and after
+		// center the span
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		
+		
+		&::before, &::after { 
+			content: '';
+			top: 0;
+			left: 0;
+		}
+		
+		&::before {
+			transform: translateY(-8px);
+		}
+		
+		&::after {
+			transform: translateY(8px);
+		}
+	}
+	
+}
+
+.nav-open {
+	.nav-trigger {
+		span {
+			background: transparent;
+		
+			&::before {
+				transform: translateY(10px);
+				transform: rotate(-45deg);
+			}
+			
+			&::after {
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+
+nav#main-nav {
+	// by default this nav is hidden, to right of the viewport
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transform: translateX(100%);
+	transition: transform .4s;
+	
+	background: rgba(#000, .95);
+	text-align: center;
+	font-size: calc(18px + .3vw);
+	letter-spacing: .05em;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	z-index: $zindex-mainNav;
+	
+	li {
+		list-style: none;
+		border-bottom: 1px solid rgba(white, .1);
+		&:last-child {
+			border: none;
+		}
+		.menu-icons i.fa {
+			padding: .5em;
+
+			&::last-child {
+				padding-right: none;
+			}
+		}
+	}
+	
+	a {
+		color: #fff;
+		line-height: 3;
+		text-shadow: 1px 1px rgba(black, .3);
+		
+		&:hover {
+			color: $color-brand-primary;
+			text-decoration: none;
+			transition: color .5s;
+		}
+	}
+}
+
+nav#main-nav.is-visible {
+	transform: translateX(0);
+}
+
+.Book {
+	padding: 1em 2em 1em;
+	.Book-cover {
+		background: $color-bg-light url(../img/cover2-sm.png) top left no-repeat;
+		background-size: 100%;
+		@include media-up(desktop) {
+			background: $color-bg-light url(../img/cover2-lg.png) top left no-repeat;
+			background-size: 100%;
+		}
+		width: auto;
+		height: 100%;		
+	}
+	.Book-title {
+		font-family: $primary-font;
+		font-weight: bold;
+		font-size: calc(40px + .3vw);
+		@include media-up(desktop) {
+			font-size: calc(60px + .3vw);
+		}
+	}
+	.Book-tagline {
+		font-family: $primary-font;
+		font-size: calc(26px + .3vw);
+	}
+	.Book-author {
+		font-family: $secondary-font;
+		margin-top: 2em;
+	}
+	.Book-description {
+
+	}
+	.Book-buttons {
+		padding: 1em 0;
+	}
+}

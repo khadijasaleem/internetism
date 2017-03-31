@@ -1,0 +1,43 @@
+// MEDIA QUERIES
+// use @include media(desktop) { .. }
+// Breakpoints in ./_variables.scss
+
+@mixin media-up($size) {
+  @if $size == phone {
+    @media screen and (min-width: $S) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media screen and (min-width: $M) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media screen and (min-width: $L) {
+      @content;
+    }
+  } @else if $size == tv {
+    @media screen and (min-width: $XL) {
+      @content;
+    }
+  } 
+}
+
+// RETINA
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+// PRINT
+@mixin print {
+  @media print {
+    @content;
+  }
+}
