@@ -110,14 +110,14 @@ nav#main-nav.is-visible {
 .Book {
   padding: 1em 2em 1em; }
   .Book .Book-cover {
-    background: #eee url(../img/cover2-sm.png) top left no-repeat;
+    background: #eee url(../img/cover2-sm-new.png) top left no-repeat;
     background-size: 100%;
     width: auto;
     height: 100%; }
     @media screen and (min-width: 992px) {
       .Book .Book-cover {
-        background: #eee url(../img/cover2-lg.png) top left no-repeat;
-        background-size: 100%; } }
+        background: #eee url(../img/cover2-lg-new.png) top left no-repeat;
+                  background-size: 100%; } }
   .Book .Book-title {
     font-family: "PT Serif", Georgia, serif;
     font-weight: bold;
